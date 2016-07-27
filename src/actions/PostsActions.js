@@ -1,3 +1,4 @@
+
 import fetch from 'isomorphic-fetch';
 import { REQUEST_POSTS, RECEIVE_POSTS } from '../constants/ActionTypes';
 

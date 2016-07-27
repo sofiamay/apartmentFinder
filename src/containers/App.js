@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as CounterActions from '../actions/CounterActions';
+import * as PostsActions from '../actions/PostsActions';
 import Counter from '../components/Counter';
 import Footer from '../components/Footer';
 import Search from '../components/Search';
-import Results from '../components/Results';
+import Houses from '../components/Houses';
 
 /**
  * It is common practice to have a 'Root' container/component require our main App (this one).
@@ -15,22 +15,22 @@ import Results from '../components/Results';
 export default class App extends Component {
   render() {
     // we can use ES6's object destructuring to effectively 'unpack' our props
-    const { counter, actions } = this.props;
+    const { posts, postsActions } = this.props;
     return (
       <div className="main-app-container">
         <div className="main-app-nav">Happy House Hunting!</div>
         {/* notice that we then pass those unpacked props into the Counter component */}
         {/* <Counter counter={counter} actions={actions} /> */}
         <Search />
-        <Results />
+        <Houses posts={posts} actions={postsActions} />
       </div>
     );
   }
 }
 
 App.propTypes = {
-  counter: PropTypes.number.isRequired,
-  actions: PropTypes.object.isRequired
+  posts: PropTypes.object.isRequired,
+  postsActions: PropTypes.object.isRequired
 };
 
 /**
@@ -40,7 +40,7 @@ App.propTypes = {
  */
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    posts: state.posts
   };
 }
 
@@ -54,7 +54,7 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(CounterActions, dispatch)
+    postsActions: bindActionCreators(PostsActions, dispatch)
   };
 }
 

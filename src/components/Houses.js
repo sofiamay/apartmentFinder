@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Result from './Result';
+import House from './House';
 
 export default class Results extends Component {
   constructor(props, context) {
@@ -17,11 +17,11 @@ export default class Results extends Component {
   render() {
     return (
       <div className="results-container">
-        <Result data={{name: 'A House', image: 'someURL'}} />
+        <House data={{name: 'A House', image: 'someURL'}} />
       </div>
     );
   }
 }
 
 Results.propTypes = {
-}
+};
