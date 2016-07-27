@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as PostsActions from '../actions/PostsActions';
 import * as FilterActions from '../actions/FilterActions';
-import Search from '../components/Search';
+import Filter from '../components/Filter';
 import Houses from '../components/Houses';
 
 /**
@@ -25,7 +25,7 @@ export default class App extends Component {
         <div className="main-app-nav">Happy House Hunting!</div>
         {/* notice that we then pass those unpacked props into the Counter component */}
         {/* <Counter counter={counter} actions={actions} /> */}
-        <Search filter={filter} actions={filterActions} />
+        <Filter filter={filter} actions={filterActions} />
         <Houses posts={posts} actions={postsActions} />
       </div>
     );

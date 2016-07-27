@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import throttle from '../utils/helpers';
 
-export default class Search extends Component {
+export default class Filter extends Component {
   constructor(props, context) {
     super(props, context);
     this.updateFilter = this.updateFilter.bind(this);
@@ -23,7 +23,7 @@ export default class Search extends Component {
   }
 }
 
-Search.propTypes = {
+Filter.propTypes = {
   filter: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired
 };
