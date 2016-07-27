@@ -1,6 +1,6 @@
 
 import fetch from 'isomorphic-fetch';
-import { REQUEST_POSTS, RECEIVE_POSTS } from '../constants/ActionTypes';
+import { REQUEST_POSTS, RECEIVE_POSTS, THROW_POSTS_ERROR } from '../constants/ActionTypes';
 
 export function requestPosts() {
   return {
@@ -12,6 +12,14 @@ export function receivePosts(json) {
   return {
     type: RECEIVE_POSTS,
     posts: json,
+    receivedAt: Date.now()
+  };
+}
+
+export function throwPostsError(json) {
+  return {
+    type: THROW_POSTS_ERROR,
+    error: json,
     receivedAt: Date.now()
   };
 }
@@ -38,13 +46,12 @@ export function fetchPosts() {
       method: 'post',
     })
       .then(response => response.json())
-      .then((json) => {
+      .then(json =>
         // We can dispatch many times!
         // Here, we update the app state with the results of the API call.
-        dispatch(receivePosts(json));
-      }
+        dispatch(receivePosts(json))
       )
-      .catch(error => console.log(error));
+      .catch(error => dispatch(throwPostsError(error)));
 
       // In a real world app, you also want to
       // catch any error in the network call.
