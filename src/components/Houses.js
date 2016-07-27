@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import House from './House';
+import { containsLabel } from '../utils/helpers.js';
 
 export default class Results extends Component {
   constructor(props, context) {
@@ -8,7 +9,7 @@ export default class Results extends Component {
 
   /* different veiws are displayed depending on the state of the posts and the filter */
   posts() {
-    const posts = this.props.posts;
+    const { posts, filter } = this.props;
     // if fetching posts, display spinner
     if (posts.isFetching) {
       return (
@@ -21,9 +22,18 @@ export default class Results extends Component {
         <div className="posts error">Error</div>
       );
     }
+    if (filter === '') {
+      return (
+        <ul className="posts">
+          {posts.items.map(post =>
+            <House data={post} />
+          )}
+        </ul>
+      );
+    }
     return (
       <ul className="posts">
-        {posts.items.map(post =>
+        {posts.items.filter(item => containsLabel(item.images, filter)).map(post =>
           <House data={post} />
         )}
       </ul>
@@ -45,5 +55,6 @@ export default class Results extends Component {
 
 Results.propTypes = {
   posts: PropTypes.object.isRequired,
+  filter: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired
 };

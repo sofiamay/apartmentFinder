@@ -26,7 +26,7 @@ export default class App extends Component {
         {/* notice that we then pass those unpacked props into the Counter component */}
         {/* <Counter counter={counter} actions={actions} /> */}
         <Filter filter={filter} actions={filterActions} />
-        <Houses posts={posts} actions={postsActions} />
+        <Houses posts={posts} actions={postsActions} filter={filter} />
       </div>
     );
   }

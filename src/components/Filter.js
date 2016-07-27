@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import throttle from '../utils/helpers';
 
 export default class Filter extends Component {
   constructor(props, context) {
@@ -8,7 +7,7 @@ export default class Filter extends Component {
   }
 
   updateFilter(event) {
-    throttle(this.props.actions.updateFilter(event.target.value), 200)();
+    this.props.actions.updateFilter(event.target.value);
   }
 
   render() {
@@ -16,7 +15,7 @@ export default class Filter extends Component {
       <div className="search-container">
         <div className="search-bar">
           <input type="text" name="fname" onChange={this.updateFilter}/>
-          <button type="button">Search</button>
+          <button type="button">Filter</button>
         </div>
       </div>
     );

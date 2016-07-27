@@ -32,3 +32,14 @@ export function throttle(func, wait, options) {
     return result;
   };
 }
+
+export function containsLabel(images, filter) {
+  let found = false;
+
+  images.forEach((image) => {
+    for (let label in image.labels) {
+      if (label === filter) { found = true; }
+    }
+  });
+  return found;
+}
