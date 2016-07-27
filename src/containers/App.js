@@ -13,6 +13,11 @@ import Houses from '../components/Houses';
  * component to make the Redux store available to the rest of the app.
  */
 export default class App extends Component {
+
+  /* Load initial ajax data. The response will trigger an update in the views */
+  componentDidMount() {
+    this.props.postsActions.fetchPosts();
+  }
   render() {
     // we can use ES6's object destructuring to effectively 'unpack' our props
     const { posts, postsActions } = this.props;
