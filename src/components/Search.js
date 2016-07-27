@@ -3,11 +3,12 @@ import React, { Component, PropTypes } from 'react';
 export default class Search extends Component {
   constructor(props, context) {
     super(props, context);
+    this.updateFilter = this.updateFilter.bind(this);
   }
 
-  // handleIncrement() {
-  //   this.props.actions.increment();
-  // }
+  updateFilter(event) {
+    this.props.actions.updateFilter(event.target.value);
+  }
 
   // handleDecrement() {
   //   this.props.actions.decrement();
@@ -16,9 +17,9 @@ export default class Search extends Component {
   render() {
     return (
       <div className="search-container">
-        <div className="search-bar">  
-          <input type="text" name="fname" />
-          <button type="button">Search</button>        
+        <div className="search-bar">
+          <input type="text" name="fname" onChange={this.updateFilter.bind()}/>
+          <button type="button">Search</button>
         </div>
       </div>
     );
@@ -26,4 +27,6 @@ export default class Search extends Component {
 }
 
 Search.propTypes = {
-}
+  filter: PropTypes.string.isRequired,
+  actions: PropTypes.object.isRequired
+};

@@ -25,5 +25,5 @@ export default class Result extends Component {
 }
 
 Result.propTypes = {
-  data: React.PropTypes.object,
-}
+  data: PropTypes.object,
+};

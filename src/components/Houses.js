@@ -45,5 +45,5 @@ export default class Results extends Component {
 
 Results.propTypes = {
   posts: PropTypes.object.isRequired,
-  postsActions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired
 };

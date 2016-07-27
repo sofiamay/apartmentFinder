@@ -62,7 +62,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     postsActions: bindActionCreators(PostsActions, dispatch),
-    FilterActions: bindActionCreators(FilterActions, dispatch)
+    filterActions: bindActionCreators(FilterActions, dispatch)
   };
 }
 
