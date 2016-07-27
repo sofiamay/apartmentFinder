@@ -2,8 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as PostsActions from '../actions/PostsActions';
-import Counter from '../components/Counter';
-import Footer from '../components/Footer';
+import * as FilterActions from '../actions/FilterActions';
 import Search from '../components/Search';
 import Houses from '../components/Houses';
 
@@ -20,13 +19,13 @@ export default class App extends Component {
   }
   render() {
     // we can use ES6's object destructuring to effectively 'unpack' our props
-    const { posts, postsActions } = this.props;
+    const { posts, postsActions, filter, filterActions } = this.props;
     return (
       <div className="main-app-container">
         <div className="main-app-nav">Happy House Hunting!</div>
         {/* notice that we then pass those unpacked props into the Counter component */}
         {/* <Counter counter={counter} actions={actions} /> */}
-        <Search />
+        <Search filter={filter} actions={filterActions} />
         <Houses posts={posts} actions={postsActions} />
       </div>
     );
@@ -35,7 +34,9 @@ export default class App extends Component {
 
 App.propTypes = {
   posts: PropTypes.object.isRequired,
-  postsActions: PropTypes.object.isRequired
+  postsActions: PropTypes.object.isRequired,
+  filter: React.PropTypes.string.isRequired,
+  filterActions: PropTypes.object.isRequired,
 };
 
 /**
@@ -45,7 +46,8 @@ App.propTypes = {
  */
 function mapStateToProps(state) {
   return {
-    posts: state.posts
+    posts: state.posts,
+    filter: state.filter,
   };
 }
 
@@ -59,7 +61,8 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
   return {
-    postsActions: bindActionCreators(PostsActions, dispatch)
+    postsActions: bindActionCreators(PostsActions, dispatch),
+    FilterActions: bindActionCreators(FilterActions, dispatch)
   };
 }
 

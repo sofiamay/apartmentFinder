@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
 import posts from './posts';
+import filter from './filter.js';
 
 /**
  * combineReducers is important to understand. As your app might grow in size
@@ -18,6 +19,7 @@ import posts from './posts';
 const rootReducer = combineReducers({
   counter, // you might be used to: counter: counter,
   posts,
+  filter,
 });
 
 export default rootReducer;
