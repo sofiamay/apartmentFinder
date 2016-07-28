@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import House from './House';
 import { containsLabel } from '../utils/helpers.js';
 
-export default class Results extends Component {
+export default class Houses extends Component {
   constructor(props, context) {
     super(props, context);
   }
@@ -32,7 +32,7 @@ export default class Results extends Component {
       );
     }
     return (
-      <ul className="posts">
+      <ul className="houses">
         {posts.items.filter(item => containsLabel(item, filter)).map(post =>
           <House data={post} />
         )}
@@ -53,7 +53,7 @@ export default class Results extends Component {
   }
 }
 
-Results.propTypes = {
+Houses.propTypes = {
   posts: PropTypes.object.isRequired,
   filter: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired

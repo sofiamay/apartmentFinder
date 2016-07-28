@@ -1,29 +1,34 @@
 import React, { Component, PropTypes } from 'react';
+import HouseImages from './HouseImages';
 
-export default class Result extends Component {
+export default class House extends Component {
   constructor(props, context) {
     super(props, context);
+    this.state = {
+      images: false,
+    };
+    this.toggleImages = this.toggleImages.bind(this);
   }
-
-  // handleIncrement() {
-  //   this.props.actions.increment();
-  // }
-
-  // handleDecrement() {
-  //   this.props.actions.decrement();
-  // }
+  toggleImages() {
+    this.setState({
+      images: true,
+    });
+  }
 
   render() {
     return (
-      <div className="result">
-        <div className="result-header">
-          <h2>{this.props.data.name}</h2>
+      <div className="house">
+        <div className="house-header">
+          <a onClick={() => {this.setState({ images: !this.state.images });}} href="#">
+            {this.props.data.name}
+          </a>
         </div>
+        {  this.state.images ? <HouseImages images={this.props.data.images}/> : null }
       </div>
     );
   }
 }
 
-Result.propTypes = {
+House.propTypes = {
   data: PropTypes.object,
 };
