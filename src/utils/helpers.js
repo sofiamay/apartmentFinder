@@ -44,13 +44,6 @@ export function extractLabels(item) {
   return labels;
 }
 
-export function containsLabel(images, filter) {
-  let found = false;
-
-  images.forEach((image) => {
-    for (let label in image.labels) {
-      if (label === filter) { found = true; }
-    }
-  });
-  return found;
+export function containsLabel(item, filter) {
+  return item.labels[filter] ? true : false;
 }

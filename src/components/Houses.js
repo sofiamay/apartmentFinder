@@ -33,7 +33,7 @@ export default class Results extends Component {
     }
     return (
       <ul className="posts">
-        {posts.items.filter(item => containsLabel(item.images, filter)).map(post =>
+        {posts.items.filter(item => containsLabel(item, filter)).map(post =>
           <House data={post} />
         )}
       </ul>
