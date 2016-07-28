@@ -1,6 +1,7 @@
 
 import fetch from 'isomorphic-fetch';
 import { REQUEST_POSTS, RECEIVE_POSTS, THROW_POSTS_ERROR } from '../constants/ActionTypes';
+import { extractLabels } from '../utils/helpers.js';
 
 export function requestPosts() {
   return {
@@ -45,11 +46,14 @@ export function fetchPosts() {
       method: 'post',
     })
       .then(response => response.json())
-      .then(json =>
+      .then(json => {
+        json.forEach((item) => {
+          item.labels = extractLabels(item);
+        });
         // We can dispatch many times!
         // Here, we update the app state with the results of the API call.
-        dispatch(receivePosts(json))
-      )
+        dispatch(receivePosts(json));
+      })
       .catch(error => dispatch(throwPostsError(error)));
 
       // In a real world app, you also want to

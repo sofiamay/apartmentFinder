@@ -33,6 +33,17 @@ export function throttle(func, wait, options) {
   };
 }
 
+export function extractLabels(item) {
+  const labels = {};
+
+  item.images.forEach((image) => {
+    for (let label in image.labels) {
+      labels[label] = image.labels[label];
+    }
+  });
+  return labels;
+}
+
 export function containsLabel(images, filter) {
   let found = false;
 
