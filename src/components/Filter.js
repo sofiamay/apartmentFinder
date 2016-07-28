@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { throttle } from '../utils/helpers.js';
 
 export default class Filter extends Component {
   constructor(props, context) {
@@ -7,7 +8,7 @@ export default class Filter extends Component {
   }
 
   updateFilter(event) {
-    this.props.actions.updateFilter(event.target.value);
+    throttle(() => this.props.actions.updateFilter(event.target.value), 200)();
   }
 
   render() {
