@@ -22,9 +22,7 @@ export default class App extends Component {
     const { posts, postsActions, filter, filterActions } = this.props;
     return (
       <div className="main-app-container">
-        <div className="main-app-nav">Happy House Hunting!</div>
-        {/* notice that we then pass those unpacked props into the Counter component */}
-        {/* <Counter counter={counter} actions={actions} /> */}
+        <div className="main-app-header">House Hunter</div>
         <Filter filter={filter} actions={filterActions} />
         <Houses posts={posts} actions={postsActions} filter={filter} />
       </div>

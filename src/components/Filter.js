@@ -13,10 +13,9 @@ export default class Filter extends Component {
 
   render() {
     return (
-      <div className="search-container">
-        <div className="search-bar">
+      <div className="filter-container">
+        <div className="filter-bar">
           <input type="text" name="fname" onChange={this.updateFilter}/>
-          <button type="button">Filter</button>
         </div>
       </div>
     );

@@ -1,80 +1,96 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,400);
+@import url(https://fonts.googleapis.com/css?family=Russo+One);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
 $main-bg-color: #f1f2f0;
-$accent-blue: #37bbe4;
+$accent-green: #AFEAAA;
 $accent-gray: #e1e0dd;
 $accent-black: #35342f;
-$accent-orange: #ec6b2d;
-$accent-red: #dd6464;
 
 body {
   background-color: $main-bg-color;
   color: $accent-black;
-  display: flex;
-  justify-content: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .main-app-container {
-  padding-top: 2em;
 }
 
-.main-app-nav {
+.main-app-header {
+  background-color: $accent-green;
+  height: 3em;
   font-size: 2em;
   text-align: center;
+  vertical-align: middle;
+  line-height: 3em; 
+  font-family: 'Russo One', sans-serif;
+  letter-spacing: .4em;
 }
 
-.counter-num-label {
-  color: $accent-orange;
-  padding-top: 1em;
-  font-size: 3em;
-  text-align: center;
-  width: 100%;
-}
+input[type="text"] {
+  width: 200px;
+  padding: 10px;
+  border: 2px solid $accent-gray;
+  border-radius: 4px;
+  transition: box-shadow 0.3s, border 0.3s;
 
-.counter-even-label {
-  padding-top: 1em;
-  font-size: 0.75em;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.counter-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 3em;
-
-  button {
-    background-color: #CCC;
-    border: none;
-    height: 30px;
-    width: 80px;
-    margin-left: 1em;
-    margin-right: 1em;
-
-    &:hover {
-      background-color: $accent-gray;
-    }
+  &:focus {
+  outline-width: 0;
+  border: solid 2px #41924B;
+  box-shadow: 0 0 5px 1px $accent-green;
   }
 }
 
-footer {
-  font-size: 0.75em;
-  text-align: center;
-  padding-top: 10em;
+// .counter-num-label {
+//   color: $accent-orange;
+//   padding-top: 1em;
+//   font-size: 3em;
+//   text-align: center;
+//   width: 100%;
+// }
 
-  a {
-    text-decoration: none;
-    color: inherit;
+// .counter-even-label {
+//   padding-top: 1em;
+//   font-size: 0.75em;
+//   text-align: center;
+//   text-transform: uppercase;
+//   letter-spacing: 3px;
+// }
 
-    &:hover {
-      color: $accent-blue;
-    }
-  }
+// .counter-buttons {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding-top: 3em;
 
-  #heart{
-    color: $accent-red;
-  }
-}
+//   button {
+//     background-color: #CCC;
+//     border: none;
+//     height: 30px;
+//     width: 80px;
+//     margin-left: 1em;
+//     margin-right: 1em;
+
+//     &:hover {
+//       background-color: $accent-gray;
+//     }
+//   }
+// }
+
+// footer {
+//   font-size: 0.75em;
+//   text-align: center;
+//   padding-top: 10em;
+
+//   a {
+//     text-decoration: none;
+//     color: inherit;
+
+//     &:hover {
+//       color: $accent-blue;
+//     }
+//   }
+
+//   #heart{
+//     color: $accent-red;
+//   }
+// }
