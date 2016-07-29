@@ -23,8 +23,10 @@ export default class App extends Component {
     return (
       <div className="main-app-container">
         <div className="main-app-header">House Hunter</div>
-        <Filter filter={filter} actions={filterActions} />
-        <Houses posts={posts} actions={postsActions} filter={filter} />
+        <div className="main-app-body">
+          <Filter filter={filter} actions={filterActions} />
+          <Houses posts={posts} actions={postsActions} filter={filter} />
+        </div>
       </div>
     );
   }

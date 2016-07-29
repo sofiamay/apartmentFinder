@@ -12,7 +12,8 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.main-app-container {
+.main-app-body {
+  text-align: center;
 }
 
 .main-app-header {
@@ -24,6 +25,45 @@ body {
   line-height: 3em; 
   font-family: 'Russo One', sans-serif;
   letter-spacing: .4em;
+}
+
+.filter-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+
+  span {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.houses {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 400px;
+  height: 300px;
+  border: 1px solid $accent-gray;
+  background-color: white;
+  border-radius: 4px;
+  margin: 5px;
+  img {
+    float: left;
+  }
+}
+
+.house-header {
+  font-size: 2em;
+}
+
+.house-description {
+  padding-top: 10px;
+  clear: left;
 }
 
 input[type="text"] {
@@ -39,6 +79,7 @@ input[type="text"] {
   box-shadow: 0 0 5px 1px $accent-green;
   }
 }
+
 
 // .counter-num-label {
 //   color: $accent-orange;

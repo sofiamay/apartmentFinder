@@ -14,9 +14,8 @@ export default class Filter extends Component {
   render() {
     return (
       <div className="filter-container">
-        <div className="filter-bar">
+        <span className="filter-title">Filter by label:</span>
           <input type="text" name="fname" onChange={this.updateFilter}/>
-        </div>
       </div>
     );
   }

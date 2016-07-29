@@ -24,19 +24,19 @@ export default class Houses extends Component {
     }
     if (filter === '') {
       return (
-        <ul className="posts">
+        <div className="houses">
           {posts.items.map(post =>
             <House data={post} />
           )}
-        </ul>
+        </div>
       );
     }
     return (
-      <ul className="houses">
+      <div className="houses">
         {posts.items.filter(item => containsLabel(item, filter)).map(post =>
           <House data={post} />
         )}
-      </ul>
+      </div>
     );
   }
 
@@ -46,7 +46,7 @@ export default class Houses extends Component {
 
   render() {
     return (
-      <div className="posts-container">
+      <div className="houses-container">
         {this.posts()}
       </div>
     );
