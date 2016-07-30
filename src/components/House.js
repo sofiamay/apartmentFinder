@@ -38,8 +38,9 @@ export default class House extends Component {
   render() {
     const defaultImage = this.defaultImage();
     const description = this.description();
+    const cardHeight = { height: this.state.images ? '800px' : '400px' };
     return (
-      <div className="card">
+      <div className="card" style={cardHeight}>
         { defaultImage ? <img src={defaultImage} /> : null}
         <div className="house-header">
           <a onClick={() => {this.setState({ images: !this.state.images });}} href="#">
