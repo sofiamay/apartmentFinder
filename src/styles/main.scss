@@ -5,6 +5,9 @@ $main-bg-color: #f1f2f0;
 $accent-green: #AFEAAA;
 $accent-gray: #e1e0dd;
 $accent-black: #35342f;
+$accent-light-blue: #6BCAE2;
+$accent-dark-blue: #51A5BA;
+$accent-dark-green: #41924B;
 
 body {
   background-color: $main-bg-color;
@@ -14,6 +17,7 @@ body {
 
 .main-app-body {
   text-align: center;
+  background-color: $accent-light-blue;
 }
 
 .main-app-header {

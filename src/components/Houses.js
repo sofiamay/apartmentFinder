@@ -13,7 +13,8 @@ export default class Houses extends Component {
     // if fetching posts, display spinner
     if (posts.isFetching) {
       return (
-        <div className="posts">Spinner</div>
+        <div className="posts header">Loading Data, please wait...
+        </div>
       );
     }
     // display error
@@ -25,9 +26,9 @@ export default class Houses extends Component {
     if (filter === '') {
       return (
         <div className="houses">
-          {posts.items.map(post =>
+          { posts.items.map(post =>
             <House data={post} />
-          )}
+          ) }
         </div>
       );
     }
@@ -39,10 +40,6 @@ export default class Houses extends Component {
       </div>
     );
   }
-
-  // handleDecrement() {
-  //   this.props.actions.decrement();
-  // }
 
   render() {
     return (

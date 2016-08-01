@@ -45,7 +45,6 @@ export default class House extends Component {
       } else {
         description = text;
       }
-      // description = this.props.data.description.substring(0,400);
     } catch (err) {
       description = '';
     }
@@ -54,7 +53,7 @@ export default class House extends Component {
 
   render() {
     const defaultImage = this.defaultImage();
-    const cardHeight = { height: this.state.longDescription ? '800px' : '400px' };
+    const cardHeight = { height: this.state.images ? '800px' : '400px' };
     return (
       <div className="card" style={cardHeight}>
         { defaultImage ? <img src={defaultImage} /> : null}
@@ -63,7 +62,6 @@ export default class House extends Component {
             {this.props.data.name}
           </a>
         </div>
-        { /* <div className="house-description">{description}</div> */}
         <div className="house-description">{this.description()}</div>
         { this.state.images ? <HouseImages images={this.props.data.images}/> : null }
       </div>
