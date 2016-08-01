@@ -1,14 +1,16 @@
 {
   "name": "generator-simple-redux",
   "version": "1.0.0",
-  "description": "My simple redux application.",
+  "description": "House Hunter",
   "scripts": {
     "clean": "rimraf dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
     "dev": "NODE_ENV=development npm start",
     "start": "node devServer.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "mocha --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "babel-preset-node5": "^11.1.0",
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.0.0",
+    "babel-register": "^6.11.6",
     "cross-env": "^1.0.6",
     "css-loader": "^0.23.1",
     "eslint": "^1.10.3",
@@ -33,6 +36,7 @@
     "eslint-plugin-react": "^3.16.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
+    "mocha": "^3.0.0",
     "node-sass": "^3.4.2",
     "redux-devtools": "^3.0.1",
     "redux-devtools-dock-monitor": "^1.0.1",
