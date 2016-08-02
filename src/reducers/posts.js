@@ -16,13 +16,11 @@ export default function posts(state = {
         isFetching: false,
         error: false,
         items: action.posts,
-        lastUpdated: action.receivedAt
       });
     case THROW_POSTS_ERROR:
       return Object.assign({}, state, {
         isFetching: false,
         error: action.error,
-        lastUpdated: action.receivedAt
       });
     default:
       return state;
